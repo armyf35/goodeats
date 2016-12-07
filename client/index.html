@@ -11,14 +11,13 @@
   <body>
 
     <div ng-controller = "mapController">
-      <style> gm-map {float: right; width: 40%; height: 250px;}</style>
-        <gm-map options="{{ geolocation }}"> Geolocation
-          <gm-marker options="{{ currentLocation }}" >Current Location
-          <gm-marker ng-repeat="loc in data" options="{{ loc.coordinates }}">
-            <gm-infowindow options='{content: "{{ loc.name }}" }'></gm-infowindow>
-          </gm-marker>
-          </gm-marker>
-        </gm-map>
+      <gm-map options="{{ geolocation }}"> Geolocation
+        <gm-marker options="{{ currentLocation }}" >Current Location
+        <gm-marker ng-repeat="loc in data" options="{{ loc.coordinates }}">
+          <gm-infowindow options='{content: "{{ loc.name }}" }'></gm-infowindow>
+        </gm-marker>
+        </gm-marker>
+      </gm-map>
     <!-- <div ng-if="coords.latitude !== false">Dragend on [{{coords.latitude}}, {{coords.longitude}}]</div> -->
     <!-- <script src="gMap/app.js"></script> -->
     </div>
@@ -28,12 +27,11 @@
     </div>
     <br>
     <br>
-    <button ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Only open establishments </button>
+    <button ng-model="openEstab" ng-change="openEstab" ng-controller="openEstabController" ng-click="toggleOpenEstablishments()">Filter open establishments </button>
     <div class = "foodSearch" ng-controller="inputController">
       <input type="text" ng-model="query.term" placeholder="habe Bier?" />
       <input type="text" ng-model="query.location" placeholder ="Where are you?" />
       <button ng-click="search()"> submit </button>
-
     </div>
         <div class="prices" ng-controller="filterController">
           Prices:
